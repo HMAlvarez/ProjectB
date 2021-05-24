@@ -14,12 +14,10 @@ public class Main {
 
 		Player newPlayer = new Player();
 		System.out.println("This is a program that will guide you through a House described by text.\n"
-				+ "As you enter each room please type one of the options to progress forward:\n"
-				+ "North\n"
-				+ "South\n"
-				+ "West\n"
-				+ "East\n"
-				+ "Quit - to end the program\n");
+				+ "As you enter each room please type one of the four cardinal directions to progress forward:\n"
+				+ "[North] [South] [West] [East]\n\n"
+				+ "or \n\n"
+				+ "[Quit] - to end the program\n");
 		newPlayer.setCurrentRoom(roomManager.getStartingRoom());
 		while (gameRunning) {
 			roomDesc(newPlayer);
@@ -28,21 +26,19 @@ public class Main {
 		}
 		if (!gameRunning) {
 			System.out.println("Have a good day");
-
 		}		
 	}
 
 	private static void roomDesc(Player newPlayer) {
-		System.out.println("The current room is the: " + newPlayer.getCurrentRoom().getName()
-				+ "\nThe short description is: " + newPlayer.getCurrentRoom().getShortDescription()
-				+ "\nThe long description is: " + newPlayer.getCurrentRoom().getLongDescription());
+		System.out.println("The current room: " + newPlayer.getCurrentRoom().getName()
+				+ "\nA short description: " + newPlayer.getCurrentRoom().getShortDescription()
+				+ "\nA long description: " + newPlayer.getCurrentRoom().getLongDescription());
 	}
 
 	private static String[] userInput() {
 		Scanner scanner = new Scanner(System.in);
 		String input = scanner.nextLine();
 		String[] choice = input.split(" ");
-		scanner.close();
 		return choice;
 	}
 
@@ -54,7 +50,7 @@ public class Main {
 		if (userChoice == "Quit") {
 			gameRunning = false;
 		} else {
-			System.out.println("You are attempting to move in the " + direction + " Direction");
+			System.out.println("You have selected to go [" + direction + "]");
 			Room attemptMove = newPlayer.getCurrentRoom().findExit(direction);
 			newPlayer.setCurrentRoom(attemptMove);
 		}

@@ -12,14 +12,13 @@ public class RoomManager {
 
 	Room[] rooms;
 
-	// constructor
 	public RoomManager(int numRooms) {
 		rooms = new Room[numRooms];
 	}
 
 	public void init() {
 		Room porch = new Room("Front Porch",
-				"Area in directly outside of the Front Door",
+				"The area directly outside of the Front Door",
 				"There is a front door [North] with a glass panel and bronzed handles. You are surronded by a garden. Behind you is a walkway that led from the driveway ");
 		Room entryHall = new Room("Entry Hall",
 				"The first hallway entering the home",
@@ -31,6 +30,7 @@ public class RoomManager {
 				"A room to cook and eat in",
 				"A large room with basic kitchen appliances like oven, stove, fridge, microwave, and a sink hugging the wall on the left. On the right there is a wooden table and chairs indended for eating meals.\n" 
 				+ "To the [North] leads to the laundry room.");
+		
 		rooms[0] = porch;
 		rooms[1] = entryHall;
 		rooms[2] = livingRoom;
@@ -40,11 +40,11 @@ public class RoomManager {
 
 		Room[] porchExits = { entryHall, null, null, null };
 		porch.setExits(porchExits);
-		Room[] entryHallExits = { livingRoom, null, null, kitchen };
+		Room[] entryHallExits = { livingRoom, porch, null, kitchen };
 		entryHall.setExits(entryHallExits);
-		Room[] livingRoomExits = { null, null, null, null };
+		Room[] livingRoomExits = { null, entryHall, null, null };
 		livingRoom.setExits(livingRoomExits);
-		Room[] kitchenExits = { null, null, null, null };
+		Room[] kitchenExits = { null, entryHall, null, null };
 		kitchen.setExits(kitchenExits);
 		
 	}

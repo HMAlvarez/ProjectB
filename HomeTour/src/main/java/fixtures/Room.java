@@ -40,11 +40,14 @@ public class Room extends Fixture {
 			exitChoice = 3;
 			break;
 		default:
-			System.out.println("Please type a valid option carefully");
+			System.out.println("Please type a valid direction as follows\n"
+					+ "[North] [South] [West] [East]\n");
+			break;
 		}
 
 		if (exits[exitChoice] == null || exitChoice > exits.length) {
-			System.out.println("Please change your option nothing exists there");
+			System.out.println("\nThere is no path in that direction!" +
+		"\nPlease choose a different direction.\n");
 			return this;
 		}
 
