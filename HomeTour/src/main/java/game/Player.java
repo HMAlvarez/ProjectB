@@ -4,12 +4,22 @@ import fixtures.Room;
 
 public class Player {
 
-	public Room currentRoom;
-
+	Room currentRoom;
+	
 	public Player() {
+		
 	}
-
+	
 	public Player(Room currentRoom) {
 		this.currentRoom = currentRoom;
 	}
+	
+	public void setCurrentRoom(Room currentRoom) {
+		this.currentRoom = currentRoom;
+	}
+	
+	public Room getCurrentRoom() {
+		return currentRoom;
+	}
+
 }

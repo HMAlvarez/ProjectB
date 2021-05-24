@@ -4,33 +4,51 @@ public class Room extends Fixture {
 
 	private Room[] exits = new Room[4];
 
-	public Room(String name, String shortDescription, String longDescription) {
-		super(name, shortDescription, longDescription);
+	public Room() {
+
 	}
 
-	public void initExits(Room north, Room south, Room west, Room east) {
-		this.exits[0] = north;
-		this.exits[1] = south;
-		this.exits[2] = west;
-		this.exits[3] = east;
+	public Room(String roomName, String shortDesciption, String longDescription) {
+		super(roomName, shortDesciption, longDescription);
 	}
 
 	public Room[] getExits() {
-		return this.exits;
+		return exits;
 	}
 
-	public Room getExit(String direction) {
-		switch (direction.toLowerCase()) {
-		case "north":
-			return this.exits[0];
-		case "south":
-			return this.exits[1];
-		case "west":
-			return this.exits[2];
-		case "east":
-			return this.exits[3];
-		default:
-			return null;
-		}
+	public void setExits(Room[] exits) {
+		this.exits = exits;
 	}
+
+	public void setExits(Room exit, int exitChoice) {
+		this.exits[exitChoice] = exit;
+	}
+
+	public Room findExit(String userChoice) {
+		int exitChoice = 0;
+		switch (userChoice) {
+		case "North":
+			exitChoice = 0;
+			break;
+		case "South":
+			exitChoice = 1;
+			break;
+		case "West":
+			exitChoice = 2;
+			break;
+		case "East":
+			exitChoice = 3;
+			break;
+		default:
+			System.out.println("Please type a valid option carefully");
+		}
+
+		if (exits[exitChoice] == null || exitChoice > exits.length) {
+			System.out.println("Please change your option nothing exists there");
+			return this;
+		}
+
+		return exits[exitChoice];
+	}
+
 }
