@@ -25,7 +25,7 @@ public class RoomManager {
 				"You enter the home. The wall on the left of you has various family photos and portraits. [North] of you is a living room area. To the [East] there is a kitchen area");
 		Room livingRoom = new Room("Living Room",
 				"A large room intended for everyday gathering and relaxation",
-				"A large room with a couch, reclining chair, TV, and entertainment system.");
+				"A large room with a couch, reclining chair, TV, and entertainment system. There is no other path besiding going [South] back to the entry hall.");
 		Room kitchen = new Room("Kitchen",
 				"A room to cook and eat in",
 				"A large room with basic kitchen appliances like oven, stove, fridge, microwave, and a sink hugging the wall on the left. On the right there is a wooden table and chairs indended for eating meals.\n" 

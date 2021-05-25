@@ -26,28 +26,31 @@ public class Room extends Fixture {
 
 	public Room findExit(String userChoice) {
 		int exitChoice = 0;
+		
 		switch (userChoice) {
 		case "North":
+		case "NORTH":
 			exitChoice = 0;
 			break;
 		case "South":
+		case "SOUTH":
 			exitChoice = 1;
 			break;
 		case "West":
+		case "WEST":
 			exitChoice = 2;
 			break;
 		case "East":
+		case "EAST":
 			exitChoice = 3;
 			break;
 		default:
-			System.out.println("Please type a valid direction as follows\n"
-					+ "[North] [South] [West] [East]\n");
-			break;
+			return null; //This causes problems if a User types anything other than a direction(N W S E)
 		}
 
 		if (exits[exitChoice] == null || exitChoice > exits.length) {
-			System.out.println("\nThere is no path in that direction!" +
-		"\nPlease choose a different direction.\n");
+			System.out.println("\nThere is no path in that direction!" 
+			+ "\nPlease choose a different direction.\n");
 			return this;
 		}
 

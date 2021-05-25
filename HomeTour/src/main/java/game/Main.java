@@ -17,7 +17,8 @@ public class Main {
 				+ "As you enter each room please type one of the four cardinal directions to progress forward:\n"
 				+ "[North] [South] [West] [East]\n\n"
 				+ "or \n\n"
-				+ "[Quit] - to end the program\n");
+				+ "[Quit] - to end the program\n"
+				+ "\n********************************************************************************************\n");
 		newPlayer.setCurrentRoom(roomManager.getStartingRoom());
 		while (gameRunning) {
 			roomDesc(newPlayer);
@@ -25,7 +26,7 @@ public class Main {
 			parse(userChoice, newPlayer);
 		}
 		if (!gameRunning) {
-			System.out.println("Have a good day");
+			System.out.println("Ending Program" + "\nGood Bye!");
 		}		
 	}
 
@@ -49,8 +50,19 @@ public class Main {
 
 		if (userChoice == "Quit") {
 			gameRunning = false;
-		} else {
-			System.out.println("You have selected to go [" + direction + "]");
+		} 
+		
+//		else if (userChoice == null) {
+//		
+//			System.out.println("You have selected [" + direction + "]");
+//			System.out.println("Please type one of the valid directions as follows\n"
+//								+ "[North] [South] [West] [East]\n");
+//			Room badMove = newPlayer.getCurrentRoom();
+//			newPlayer.setCurrentRoom(badMove);
+//		}
+		
+		else {
+			System.out.println("You have selected [" + direction + "]");
 			Room attemptMove = newPlayer.getCurrentRoom().findExit(direction);
 			newPlayer.setCurrentRoom(attemptMove);
 		}
