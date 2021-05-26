@@ -20,10 +20,6 @@ public class Room extends Fixture {
 		this.exits = exits;
 	}
 
-	public void setExits(Room exit, int exitChoice) {
-		this.exits[exitChoice] = exit;
-	}
-
 	public Room findExit(String userChoice) {
 		int exitChoice = 0;
 		
@@ -45,7 +41,8 @@ public class Room extends Fixture {
 			exitChoice = 3;
 			break;
 		default:
-			return null; //This causes problems if a User types anything other than a direction(N W S E)
+			//I need to find a way to not have exceptions when the default case is switched
+			System.out.println("Oh no the program broke");
 		}
 
 		if (exits[exitChoice] == null || exitChoice > exits.length) {

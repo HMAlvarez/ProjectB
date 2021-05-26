@@ -45,8 +45,7 @@ public class RoomManager {
 		Room[] livingRoomExits = { null, entryHall, null, null };
 		livingRoom.setExits(livingRoomExits);
 		Room[] kitchenExits = { null, entryHall, null, null };
-		kitchen.setExits(kitchenExits);
-		
+		kitchen.setExits(kitchenExits);		
 	}
 
 	public Room getRoom(int roomNumber) {
